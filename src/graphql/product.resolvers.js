@@ -1,16 +1,14 @@
-const product = (_, { id }) => {
-    return {
-        id,
-        name: "PS5",
-        price: 5499.99,
-        description: "Videogame console of Sony",
-        image: "https://my-image.png",
-        createdAt: new Date().toISOString()
-    }
+const ProductsService = require('./../services/product.service');
+const  service = new ProductsService();
+
+const product = async (_, { id }) => {
+    const product = await service.findOne(id);
+    return product;
 }
 
-const products = (_, args) => {
-    return []
+const products = async (_, args) => {
+    const products = await service.find({});
+    return products;
 }
 
 const addProduct = () => {

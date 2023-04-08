@@ -1,12 +1,11 @@
 {
-  "name": "my-store",
+  "name": "API-graphql",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development nodemon src/index.js",
     "start": "node src/index.js",
-    "lint": "eslint",
     "seed:all": "sequelize-cli db:seed:all",
     "seed:undo": "sequelize-cli db:seed:undo:all",
     "migrations:generate": "sequelize-cli migration:generate --name",
@@ -16,10 +15,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "nodemon": "2.0.19",
-    "prettier": "2.7.1"
+    "nodemon": "2.0.19"
   },
   "dependencies": {
     "@apollo/server": "^4.6.0",
