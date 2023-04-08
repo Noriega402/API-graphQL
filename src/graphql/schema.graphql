@@ -17,3 +17,16 @@ type Product {
     createdAt: String!
     options: String!
 }
+
+type Mutation {
+    addProduct(dto: CreateProductInput): Product
+}
+
+# Un input es un DTO -> Data Transfer Objects
+input CreateProductInput {
+    name: String!,
+    price: Int!,
+    description: String!,
+    image: String!,
+    categoryId: ID!
+}

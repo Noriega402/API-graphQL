@@ -11,8 +11,9 @@ const products = async (_, args) => {
     return products;
 }
 
-const addProduct = () => {
-
+const addProduct = async (_, { dto }) => {
+    const insert = await service.create(dto);
+    return insert;
 }
 
 module.exports = { product, products, addProduct }
