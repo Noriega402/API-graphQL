@@ -1,13 +1,11 @@
-# comentario sencillo
 type Query {
     hello: String!
     product(id: ID!): Product
     products: [Product!]!
+    category(id: ID!): Category
+    categories: [Category!]!
 }
 
-"""
-Comentario multiple
-"""
 type Product {
     id: ID!
     name: String!
@@ -16,6 +14,15 @@ type Product {
     image: String!
     createdAt: String!
     options: String!
+    categoryId: ID!
+    category: Category!
+}
+
+type Category {
+    id: ID!
+    name: String!
+    image: String!
+    products: [Product!]
 }
 
 type Mutation {
