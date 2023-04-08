@@ -1,0 +1,39 @@
+# comentario sencillo
+type Query {
+        hello: String!
+        getPerson(name: String!, age: Int!): String
+        getInt(age: Int!): Int
+        getFloat: Float
+        getString(name: String!): String
+        getBoolean: Boolean
+        getID: Int
+        getNumbers(numbers: [Int!]!): [Int]
+        getNames(names: [String!]!): [String]
+        getProduct: Product
+        getAuthor: Author
+        getBooks: Book
+}
+
+"""Comentario multiple"""
+type Product {
+    id: ID!
+    name: String!
+    price: Float!
+    description: String!
+    image: String!
+    createdAt: String!
+    options: String!
+}
+
+type Author {
+    id: ID!
+    name: String!
+    books: [Book]
+}
+
+type Book {
+    id: ID
+    name: String!
+    description: String!
+    creation: String!
+}
