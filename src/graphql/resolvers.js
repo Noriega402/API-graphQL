@@ -1,13 +1,15 @@
-const { product, products, addProduct } = require('./product.resolvers')
+const { product, products, addProduct, updatedProduct, deletedProduct } = require('./product.resolvers')
 
 const resolvers = {
     Query: {
         hello: () => "Hello World",
         product,
-        products,
+        products
     },
     Mutation: {
-        addProduct
+        addProduct,
+        updatedProduct,
+        deletedProduct
     }
 }
 

@@ -1,19 +1,37 @@
 const ProductsService = require('./../services/product.service');
 const  service = new ProductsService();
 
-const product = async (_, { id }) => {
-    const product = await service.findOne(id);
-    return product;
+/*
+    No es necesario utilizar async/await porque los resolvers
+    se encargan de retornar la promesa, a menos que se necesite
+    manipular algo antes de retornar si se tendria que usar
+ */
+
+const product = (_, { id }) => {
+    return service.findOne(id);
 }
 
-const products = async (_, args) => {
-    const products = await service.find({});
-    return products;
+const products = (_, args) => {
+    return service.find({});
 }
 
-const addProduct = async (_, { dto }) => {
-    const insert = await service.create(dto);
-    return insert;
+const addProduct = (_, { dto }) => {
+    return service.create(dto);
 }
 
-module.exports = { product, products, addProduct }
+const updatedProduct = (_, { id, dto }) => {
+    return service.update(id, dto);
+}
+
+const deletedProduct = async (_, { id }) => {
+    await service.delete(id);
+    return id;
+}
+
+module.exports = {
+    product,
+    products,
+    addProduct,
+    updatedProduct,
+    deletedProduct
+}

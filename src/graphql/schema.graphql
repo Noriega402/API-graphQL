@@ -20,6 +20,8 @@ type Product {
 
 type Mutation {
     addProduct(dto: CreateProductInput): Product
+    updatedProduct(id: ID!, dto: UpdatedProductInput!): Product
+    deletedProduct(id: ID!): ID
 }
 
 # Un input es un DTO -> Data Transfer Objects
@@ -29,4 +31,12 @@ input CreateProductInput {
     description: String!,
     image: String!,
     categoryId: ID!
+}
+
+input UpdatedProductInput {
+    name: String,
+    price: Int,
+    description: String,
+    image: String,
+    categoryId: ID
 }
