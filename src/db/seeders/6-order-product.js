@@ -9,13 +9,19 @@ module.exports = {
       {
         amount: 2,
         order_id: 1,
-        product_id: 1,
+        product_id: 4,
         created_at: new Date()
       },
       {
-        amount: 2,
+        amount: 1,
         order_id: 1,
         product_id: 2,
+        created_at: new Date()
+      },
+      {
+        amount: 3,
+        order_id: 2,
+        product_id: 1,
         created_at: new Date()
       },
     ]);

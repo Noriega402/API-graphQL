@@ -7,35 +7,35 @@ module.exports = {
     }
     return queryInterface.bulkInsert(PRODUCT_TABLE, [
       {
-        name: 'Product 1',
+        name: 'Nintendo Game Cube',
         image: 'https://api.lorem.space/image/game?w=150&h=220',
-        description: 'bla bla bla',
-        price: 100,
-        category_id: 1,
-        created_at: new Date()
-      },
-      {
-        name: 'Product 2',
-        image: 'https://api.lorem.space/image/game?w=150&h=220',
-        description: 'bla bla bla',
-        price: 200,
-        category_id: 1,
-        created_at: new Date()
-      },
-      {
-        name: 'Product 3',
-        image: 'https://api.lorem.space/image/game?w=150&h=220',
-        description: 'bla bla bla',
-        price: 300,
+        description: 'Consola de Nintendo',
+        price: 500,
         category_id: 2,
         created_at: new Date()
       },
       {
-        name: 'Product 4',
+        name: 'Play Station 5',
         image: 'https://api.lorem.space/image/game?w=150&h=220',
-        description: 'bla bla bla',
-        price: 400,
+        description: 'Consola de Sony',
+        price: 800,
         category_id: 2,
+        created_at: new Date()
+      },
+      {
+        name: 'Sillon doble',
+        image: 'https://api.lorem.space/image/game?w=150&h=220',
+        description: 'Sillon para dos personas',
+        price: 1200,
+        category_id: 1,
+        created_at: new Date()
+      },
+      {
+        name: 'Mesa plegable',
+        image: 'https://api.lorem.space/image/game?w=150&h=220',
+        description: 'Mesa de plastico para visitas',
+        price: 250,
+        category_id: 1,
         created_at: new Date()
       }
     ]);

@@ -7,12 +7,12 @@ module.exports = {
     }
     return queryInterface.bulkInsert(CATEGORY_TABLE, [
       {
-        name: 'Category 1',
+        name: 'Hogar',
         image: 'https://api.lorem.space/image/game?w=150&h=220',
         created_at: new Date()
       },
       {
-        name: 'Category 2',
+        name: 'Videojuegos',
         image: 'https://api.lorem.space/image/game?w=150&h=220',
         created_at: new Date()
       }
