@@ -1,4 +1,6 @@
 const boom = require('@hapi/boom');
+const checkRolesGraphql = require('../utils/check.roles.graph');
+const checkJwtGraphql = require('../utils/checkJWT.graph');
 const CategoryService = require('./../services/category.service');
 const service = new CategoryService();
 
@@ -14,13 +16,11 @@ const categories = (_, args) => {
  * @param _
  * @param dto datos para nueva categoria
  * @param context permite ejecutar las estrategias de autenticacion
- * @returns {Promise<Model<any, TModelAttributes>>}
+ * @returns {Promise}
  */
 const addCategory = async (_, { dto }, context) => {
-    const { user } = await context.authenticate('jwt', {session: false});
-    if(!user){
-        boom.unauthorized('JWT no es valido...');
-    }
+    const user = await checkJwtGraphql(context);
+    checkRolesGraphql(user,'admin');
     return service.create(dto);
 }
 
