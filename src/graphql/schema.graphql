@@ -26,9 +26,22 @@ type Category {
 }
 
 type Mutation {
+    login(email: String!, password: String!): AuthResponse
     addProduct(dto: CreateProductInput): Product
     updatedProduct(id: ID!, dto: UpdatedProductInput!): Product
     deletedProduct(id: ID!): ID
+}
+
+type AuthResponse {
+    access_token: String!
+    user: User!
+}
+
+type User {
+    id: ID!
+    email: String!
+    role: String!
+    createdAt: String!
 }
 
 # Un input es un DTO -> Data Transfer Objects
