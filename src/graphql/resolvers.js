@@ -1,10 +1,9 @@
 const { product, products, addProduct, updatedProduct, deletedProduct } = require('./product.resolvers')
-const { categories, category } = require('./category.resolvers')
+const { categories, category, addCategory } = require('./category.resolvers')
 const { login } = require('./auth.resolvers')
 
 const resolvers = {
     Query: {
-        hello: () => "Hello World",
         product,
         products,
         category,
@@ -13,6 +12,7 @@ const resolvers = {
     Mutation: {
         login,
         addProduct,
+        addCategory, // con validacion de JWT
         updatedProduct,
         deletedProduct
     }

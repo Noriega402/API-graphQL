@@ -9,6 +9,7 @@ const service = new AuthService();
  * @returns {Promise<*>}
  */
 const login = async (_, { email, password }, context) => {
+    //obtiene las estrategias de autenticacion
     const { user } = await context.authenticate('graphql-local', {email, password});
     return service.signToken(user);
 }

@@ -27,7 +27,8 @@ type Category {
 
 type Mutation {
     login(email: String!, password: String!): AuthResponse
-    addProduct(dto: CreateProductInput): Product
+    addProduct(dto: CreateProductInput!): Product
+    addCategory(dto: CreateCategoryInput!): Category
     updatedProduct(id: ID!, dto: UpdatedProductInput!): Product
     deletedProduct(id: ID!): ID
 }
@@ -51,6 +52,11 @@ input CreateProductInput {
     description: String!,
     image: String!,
     categoryId: ID!
+}
+
+input CreateCategoryInput {
+    name: String!
+    image: String!
 }
 
 input UpdatedProductInput {
