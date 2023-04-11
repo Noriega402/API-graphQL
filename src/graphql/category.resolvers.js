@@ -21,7 +21,11 @@ const categories = (_, args) => {
 const addCategory = async (_, { dto }, context) => {
     const user = await checkJwtGraphql(context);
     checkRolesGraphql(user,'admin');
-    return service.create(dto);
+    //console.log(dto);
+    return service.create({
+        ...dto,
+        image: dto.image.href
+    });
 }
 
 
