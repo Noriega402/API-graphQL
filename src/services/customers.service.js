@@ -49,6 +49,10 @@ class CustomerService {
     return { rta: true };
   }
 
+  async getUserByCustomer(id){
+    return await models.User.findOne({where: { id: id}});
+  }
+
 }
 
 module.exports = CustomerService;

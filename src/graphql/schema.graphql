@@ -4,6 +4,16 @@ type Query {
     products: [Product!]!
     category(id: ID!): Category
     categories: [Category!]!
+    customer(id: ID!): Customer!
+    customers: [Customer!]!
+}
+
+type Mutation {
+    login(email: EmailAddress!, password: String!): AuthResponse
+    addProduct(dto: CreateProductInput!): Product
+    addCategory(dto: CreateCategoryInput!): Category
+    updatedProduct(id: ID!, dto: UpdatedProductInput!): Product
+    deletedProduct(id: ID!): ID
 }
 
 type Product {
@@ -25,14 +35,6 @@ type Category {
     products: [Product!]
 }
 
-type Mutation {
-    login(email: EmailAddress!, password: String!): AuthResponse
-    addProduct(dto: CreateProductInput!): Product
-    addCategory(dto: CreateCategoryInput!): Category
-    updatedProduct(id: ID!, dto: UpdatedProductInput!): Product
-    deletedProduct(id: ID!): ID
-}
-
 type AuthResponse {
     access_token: String!
     user: User!
@@ -40,9 +42,20 @@ type AuthResponse {
 
 type User {
     id: ID!
-    email: EmailAddress!
+    email: String!
     role: String!
     createdAt: String!
+    customer: Customer!
+}
+
+type Customer {
+    id: ID!
+    name: String!
+    lastName: String!
+    phone: String!
+    createdAt: String!
+    userId: String!
+    user: User!
 }
 
 # Un input es un DTO -> Data Transfer Objects -> Mutations
@@ -59,6 +72,18 @@ input CreateCategoryInput {
     image: URL!
 }
 
+input CreateUserInput {
+    email: EmailAddress!
+    password: String!
+    role: userRoleRegex!
+}
+
+input CreateCustomerInput {
+    name: String!
+    lastName: String!
+    phone: PhoneNumber!
+}
+
 input UpdatedProductInput {
     name: String,
     price: Int,
@@ -67,4 +92,18 @@ input UpdatedProductInput {
     categoryId: ID
 }
 
+input UpdatedCustomerInput {
+    name: String!
+    lastName: String!
+    phone: PhoneNumber!
+    userId: ID!
+}
+
+input UpdatedUserInput {
+    email: EmailAddress!
+    password: String!
+    role: String!
+}
+
 scalar categoryRegex #definiendo nuevo schema
+scalar userRoleRegex
